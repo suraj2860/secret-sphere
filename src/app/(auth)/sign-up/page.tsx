@@ -88,78 +88,90 @@ const page = () => {
     }
 
     return (
-        <div className="">
-            <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)}>
-                    <FormField
-                        name="username"
-                        control={form.control}
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Username</FormLabel>
-                                <FormControl>
-                                    <Input placeholder="username"
-                                        {...field}
-                                        onChange={(e) => {
-                                            field.onChange(e);
-                                            debounced(e.target.value);
-                                        }}
-                                    />
-                                </FormControl>
-                                {isCheckingUsername && <Loader2 className="animate-spin" />}
-                                <p>
-                                    test {usernameMessage}
-                                </p>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-                    <FormField
-                        name="email"
-                        control={form.control}
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Email</FormLabel>
-                                <FormControl>
-                                    <Input placeholder="email"
-                                        {...field}
-                                    />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-                    <FormField
-                        name="password"
-                        control={form.control}
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Password</FormLabel>
-                                <FormControl>
-                                    <Input type="password" placeholder="password"
-                                        {...field}
-                                    />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-                    <Button type="submit" disabled={isSubmitting}>
-                        {
-                            isSubmitting ? (
-                                <>
-                                    <Loader2 className='' /> Please wait
-                                </>
-                            ) : ('Signup')
-                        }
-                    </Button>
-                </form>
-            </Form>
-            <div>
-                <p>
-                    Already a member? {' '}
-                    <Link href={'/sign-in'} className="test-blue-600 hover:text-blue-800">Sign in</Link>
-                </p>
+        <div className="bg-gray-900 text-white h-screen flex flex-col justify-center items-center">
+            <h1 className="mb-6 text-3xl">Sign Up</h1>
+            <div className=" w-96  border rounded p-4">
+                <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)}>
+                        <FormField
+                            name="username"
+                            control={form.control}
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Username</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="username"
+                                            {...field}
+                                            onChange={(e) => {
+                                                field.onChange(e);
+                                                debounced(e.target.value);
+                                            }}
+                                            className="text-black"
+                                        />
+                                    </FormControl>
+                                    {isCheckingUsername && <Loader2 className="animate-spin" />}
+                                    {
+                                        usernameMessage === 'Username available' ?
+                                            <p className="text-green-400 text-xs">
+                                                {usernameMessage}
+                                            </p> :
+                                            <p className="text-red-400 text-xs">
+                                                {usernameMessage}
+                                            </p>
+                                    }
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            name="email"
+                            control={form.control}
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Email</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="email"
+                                            {...field}
+                                            className="text-black"
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            name="password"
+                            control={form.control}
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Password</FormLabel>
+                                    <FormControl>
+                                        <Input type="password" placeholder="password"
+                                            {...field}
+                                            className="text-black"
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <Button type="submit" disabled={isSubmitting} className="bg-green-600 my-3 ">
+                            {
+                                isSubmitting ? (
+                                    <>
+                                        <Loader2 className='' /> Please wait
+                                    </>
+                                ) : ('Signup')
+                            }
+                        </Button>
+                    </form>
+                </Form>
+                <div >
+                    <p>
+                        Already a member? {' '}
+                        <Link href={'/sign-in'} className="test-blue-600 hover:text-blue-800">Sign in</Link>
+                    </p>
+                </div>
             </div>
         </div>
     )
