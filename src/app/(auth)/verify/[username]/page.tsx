@@ -34,7 +34,7 @@ const page = () => {
         description: response.data.message
       });
 
-      router.replace('sign-in');
+      router.replace('/sign-in');
     } catch (error) {
       console.error('Error in signup of user :: ', error);
       const axiosError = error as AxiosError<ApiResponse>;
@@ -47,7 +47,7 @@ const page = () => {
   }
 
   return (
-    <div className='flex flex-col justify-center items-center bg-gray-900 h-screen text-white '>
+    <div className='flex flex-col justify-center items-center bg-gray-800 h-screen text-white '>
       <h1 className='mb-6 text-3xl '> Verify Your Account</h1>
       <div className='border p-4 rounded w-80'>
         <Form {...form}>

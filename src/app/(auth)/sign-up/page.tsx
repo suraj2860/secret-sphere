@@ -88,8 +88,9 @@ const page = () => {
     }
 
     return (
-        <div className="bg-gray-900 text-white h-screen flex flex-col justify-center items-center">
-            <h1 className="mb-6 text-3xl">Sign Up</h1>
+        <div className="bg-gray-800 text-white h-screen flex flex-col  items-center">
+            <h1 className="text-5xl mb-16 mt-16">Secret Sphere</h1>
+            <h1 className="mb-4 text-2xl">Sign Up</h1>
             <div className=" w-96  border rounded p-4">
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -169,7 +170,7 @@ const page = () => {
                 <div >
                     <p>
                         Already a member? {' '}
-                        <Link href={'/sign-in'} className="test-blue-600 hover:text-blue-800">Sign in</Link>
+                        <Link href={'/sign-in'} className="text-blue-500 hover:text-blue-600">Sign in</Link>
                     </p>
                 </div>
             </div>

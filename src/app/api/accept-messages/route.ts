@@ -9,6 +9,7 @@ export async function POST(req: Request) {
 
     const session = await getServerSession(authOptions);
     const user: AuthUser = session?.user as AuthUser;
+    //console.log(user);
 
     if (!session || !session.user) {
         return Response.json(

@@ -53,8 +53,9 @@ const page = () => {
     }
 
     return (
-        <div className="bg-gray-900 text-white h-screen flex flex-col justify-center items-center">
-            <h1 className="mb-6 text-3xl">Sign In</h1>
+        <div className="bg-gray-800 text-white h-screen flex flex-col  items-center ">
+            <h1 className="text-5xl mb-20 mt-16">Secret Sphere</h1>
+            <h1 className="mb-4 text-2xl">Sign In</h1>
             <div className=" w-96  border rounded p-4">
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -63,7 +64,7 @@ const page = () => {
                             control={form.control}
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Email/Username</FormLabel>
+                                    <FormLabel>Email/ Username</FormLabel>
                                     <FormControl>
                                         <Input placeholder="email/username"
                                             {...field}
@@ -74,6 +75,7 @@ const page = () => {
                                 </FormItem>
                             )}
                         />
+                        <br />
                         <FormField
                             name="password"
                             control={form.control}
@@ -90,7 +92,7 @@ const page = () => {
                                 </FormItem>
                             )}
                         />
-                        <Button type="submit" disabled={isSubmitting} className="bg-green-600 my-3 ">
+                        <Button type="submit" disabled={isSubmitting} className="bg-green-600 my-4 ">
                             Signin
                         </Button>
                     </form>
@@ -98,7 +100,7 @@ const page = () => {
                 <div >
                     <p>
                         New?  {' '}
-                        <Link href={'/sign-up'} className="test-blue-600 hover:text-blue-800">Sign up</Link>
+                        <Link href={'/sign-up'} className="text-blue-500 hover:text-blue-600">Sign up</Link>
                     </p>
                 </div>
             </div>
